@@ -7,24 +7,22 @@ export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
 
-  function handleResponse(response) {
-    console.log(response.data[0]);
-    setResults(response.data[0]);
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
   }
 
-  //.meanings[0].definitions[0].definition
+  function handleResponse(response) {
+    setResults(response.data);
+  }
 
   function search(event) {
-    event.preventDefault();
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    let apiKey = "481aac31dc0cf93ff00co0ba4983t520";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
-   }
-
-   function handleKeywordChange(event) {
-    setKeyword(event.target.value);
-   }
-
+    event.preventDefault();
+  }
 
   return (
     <div className="Dictionary">
