@@ -19,11 +19,9 @@ export default function Dictionary() {
   function search(event) {
     const apiKey = process.env.DICTIONARY_REACT_API_KEY;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
-    console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
     event.preventDefault();
   }
-
   return (
     <div className="Dictionary">
       <h3>Dictionary</h3>
