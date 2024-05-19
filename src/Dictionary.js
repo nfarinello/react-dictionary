@@ -3,6 +3,7 @@ import axios from "axios";
 import Results from "./Results";
 import "./Dictionary.css";
 
+
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
@@ -17,8 +18,9 @@ export default function Dictionary() {
   }
 
   function search(event) {
-    const apiKey = process.env.DICTIONARY_REACT_API_KEY;
+    const apiKey = process.env.REACT_APP_API_KEY;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+    console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
     event.preventDefault();
   }
