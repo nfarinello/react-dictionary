@@ -11,7 +11,7 @@ export default function App() {
           <img src={logo} className="App-logo img-fluid" alt="logo" />
         </header>
         <main className="header">
-          <Dictionary defaultKeyword="book" />
+          <Dictionary defaultKeyword="sunset" />
         </main>
         <footer className="text-center">
           Coded by Nicole Farinello, this project is{" "}
